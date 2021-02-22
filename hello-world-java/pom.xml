@@ -14,11 +14,27 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>com.google.cloud.functions</groupId>
             <artifactId>functions-framework-api</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.4</version>
+            <scope>provided</scope>
         </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.functions</groupId>
+                <artifactId>function-maven-plugin</artifactId>
+                <version>0.9.7</version>
+                <configuration>
+                    <functionTarget>com.example.HelloWorldJavaCloudFunction</functionTarget>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
