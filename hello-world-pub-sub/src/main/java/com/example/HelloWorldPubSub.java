@@ -8,6 +8,8 @@ import java.util.Base64;
 
 public class HelloWorldPubSub implements BackgroundFunction<MyMessage> {
 
+    // A read-only Context object which carries metadata about the event.
+
     @Override
     public void accept(MyMessage message, Context context) {
         String name = "world";

@@ -10,6 +10,7 @@
     <modules>
         <module>hello-world-java</module>
         <module>hello-world-pub-sub</module>
+        <module>hello-world-raw-pub-sub</module>
     </modules>
 
 </project>
