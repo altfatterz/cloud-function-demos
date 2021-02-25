@@ -8,16 +8,6 @@ curl localhost:8080 \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{
-        "context": {
-          "eventId":"1144231683168617",
-          "timestamp":"2020-05-06T07:33:34.556Z",
-          "eventType":"google.pubsub.topic.publish",
-          "resource":{
-            "service":"pubsub.googleapis.com",
-            "name":"projects/sample-project/topics/gcf-test",
-            "type":"type.googleapis.com/google.pubsub.v1.PubsubMessage"
-          }
-        },
         "data": {
           "@type": "type.googleapis.com/google.pubsub.v1.PubsubMessage",
           "attributes": {
@@ -27,3 +17,30 @@ curl localhost:8080 \
         }
       }'
 ```
+
+Create a topic:
+
+```bash
+$ gcloud pubsub topics create people
+$ gcloud pubsub topics list
+$ gcloud pubsub topics publish people --message Zoltan
+```
+
+
+Deployment
+
+```bash
+$ gcloud functions deploy hello-world-pub-sub \
+--entry-point com.example.HelloWorldPubSub \
+--runtime java11 \
+--memory 512MB \
+--trigger-topic people \
+--region europe-west6 
+```
+
+Delete function
+```bash
+$ gcloud functions delete hello-world-pub-bus --region europe-west6
+```
+
+
