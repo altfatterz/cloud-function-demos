@@ -18,3 +18,10 @@ In the logs you will see:
 ```bash
 Payload:{"@type":"type.googleapis.com/google.pubsub.v1.PubsubMessage","attributes":{"foo":"bar","x":"y"},"data":"Wm9sdGFu"}
 ```
+
+Using `gcloud functions call`
+
+```bash
+$ gcloud functions call hello-world-raw-pub-sub --region europe-west6 --data='{"foo":"bar"}'
+executionId: s67tnzvcgu5g
+```

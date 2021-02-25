@@ -44,3 +44,9 @@ $ gcloud functions delete hello-world-pub-bus --region europe-west6
 ```
 
 
+Using `gcloud functions call`
+
+```bash
+$ gcloud functions call hello-world-pub-sub --region europe-west6 --data='{"data":"Wm9sdGFu"}'
+executionId: l0hzya2ou4w1
+```
