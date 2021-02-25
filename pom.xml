@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>hello-world-java</module>
+        <module>hello-world-pub-sub</module>
     </modules>
 
 </project>
