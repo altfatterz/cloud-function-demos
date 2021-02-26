@@ -11,6 +11,9 @@
         <module>hello-world-java</module>
         <module>hello-world-pub-sub</module>
         <module>hello-world-raw-pub-sub</module>
+        <module>hello-world-spring-http-java</module>
+
+        <module>cloud-functions-with-cloud-sql-demo</module>
     </modules>
 
 </project>
