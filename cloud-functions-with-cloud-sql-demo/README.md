@@ -1,3 +1,19 @@
+1. Running locally:
+
+```bash
+$ docker run --rm --name mypostgres -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:13.2 
+```
+
+```bash
+$ mvn function:run -Dspring.profiles.active=local 
+```
+
+```bash
+$ curl :8080/users
+```
+
+2. Setup staging environment:
+
 ```bash
 $ gcloud services enable compute.googleapis.com
 $ gcloud services enable sql-component.googleapis.com
@@ -61,9 +77,16 @@ After that you will get: `Caused by: java.lang.RuntimeException: Unable to obtai
 $ mvn function:run
 ```
 
-
-Locally:
+Deploy
 
 ```bash
-$ docker run --name mypostgres -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:13.2 
+$ gcloud functions deploy cloud-functions-with-cloud-sql-demo \
+--entry-point org.springframework.cloud.function.adapter.gcp.GcfJarLauncher \
+--runtime java11 \
+--trigger-http \
+--source target/deploy \
+--allow-unauthenticated \
+--region europe-west6 \
+--set-env-vars spring.profiles.active=staging \
+--memory 512MB
 ```

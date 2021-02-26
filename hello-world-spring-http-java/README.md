@@ -11,7 +11,7 @@ $ gcloud functions deploy hello-world-spring-http-java \
 --trigger-http \
 --source target/deploy \
 --allow-unauthenticated \
---region europe-west6 \ 
+--region europe-west6 \
 --memory 512MB
 ```
 
